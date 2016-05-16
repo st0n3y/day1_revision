@@ -1,11 +1,7 @@
 class WordFormatter
 
-  def initialize( input )
-    @input = input
-  end
-
-  def upcase()
-    return @input.upcase
+  def upcase( input )
+    return input.upcase
   end
 
 end

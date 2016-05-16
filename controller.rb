@@ -12,14 +12,14 @@ end
 get '/address' do
   content_type(:json)
 
+  wordformatter = WordFormatter.new()
+
   results = {
     address: '3 ARGYLE HOUSE', 
     building: 'CODEBASE', 
-    postcode: 'eh13 zqf',
+    postcode: wordformatter.upcase('eh13 zqf'),
     phone: '0131558030'
   }
   
-  wordformatter = WordFormatter.new(results)
-  @result = wordformatter.upcase
-  return erb(:address).to_json
+  return results.to_json
 end
