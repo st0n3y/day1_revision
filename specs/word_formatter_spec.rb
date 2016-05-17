@@ -8,8 +8,14 @@ class TestWordFormatter < MiniTest::Test
     @wordformatter = WordFormatter.new()
   end
 
-  def test_upcase('eh13 zqf')
-    assert_equal('EH13 ZQF', @word_formatter.upcase)
+  def test_upcase()
+    result = @wordformatter.upcase('eh13 zqf')
+    assert_equal('EH13 ZQF', result)
+  end
+
+  def test_camelise()
+    result = @wordformatter.camelise( 'code clan')
+    assert_equal('CodeClan', result)
   end
 
 end

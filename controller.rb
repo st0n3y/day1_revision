@@ -3,7 +3,6 @@ require 'sinatra/contrib/all' if development?
 require 'pry-byebug'
 require 'json'
 require_relative './models/word_formatter.rb'
-require_relative './models/camelcase.rb'
 
 get '/' do
   erb(:name_and_bio)
@@ -22,4 +21,9 @@ get '/address' do
   }
   
   return results.to_json
+end
+
+get '/camelise/:string' do
+  wordformatter = WordFormatter.new()
+  return wordformatter.camelise(params[:string])
 end
